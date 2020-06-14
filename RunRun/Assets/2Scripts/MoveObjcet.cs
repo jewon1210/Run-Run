@@ -8,9 +8,11 @@ public class MoveObjcet : MonoBehaviour
     [SerializeField] float _StartPosition = 7.0f;
     [SerializeField] float _EndPosition = -7.0f;
     [SerializeField] float _PositionY = 0.0f;
+    GameObject obj;
 
     void Start()
     {
+        obj = GameObject.FindGameObjectWithTag("Obstacle");   
     }
 
     // Update is called once per frame
