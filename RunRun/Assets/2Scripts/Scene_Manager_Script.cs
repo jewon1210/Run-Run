@@ -43,27 +43,29 @@ public class Scene_Manager_Script : MonoBehaviour
             Change_Scene = true;
             time_check=delay_check;
             Click_once = false;
+            BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.TITLE);
         }
 
-        if((delay_check-time_check) >= 2.0f && Change_Scene)
+        if ((delay_check-time_check) >= 2.0f && Change_Scene)
         {
             SceneManager.LoadScene("Lobby");
             Change_Scene = false;
-        }
-
-        
+        }        
     }
+
 
     public void Load_Ingame_Scene()
     {        
         //이후 시간차를 두어 넘어가게 하고 중간에 로딩화면 등을 넣을 예정
 
         SceneManager.LoadScene("Ingame");
+        BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.INGAME);
     }
 
     public void Restart_Game()
     {
         SceneManager.LoadScene("Ingame");
+        BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.INGAME);
     }
 
     public void Go_Home()
