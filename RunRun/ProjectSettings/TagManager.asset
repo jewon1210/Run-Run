@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - Obstacle
+  - ClearLine
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -54,4 +56,7 @@ TagManager:
     locked: 0
   - name: Obstacle
     uniqueID: 2088897307
+    locked: 0
+  - name: Coin
+    uniqueID: 2836363771
     locked: 0
