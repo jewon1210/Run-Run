@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BGM_Manager_Script : MonoBehaviour
 {
@@ -13,10 +14,10 @@ public class BGM_Manager_Script : MonoBehaviour
 
     [SerializeField] AudioClip[] _bgmClips;
 
+    public Slider BGMVolume;
     AudioSource _playerBGM;
 
-    float _bgmVolum = 1;
-    float _effectVolum = 1;
+    float _bgmVolum = 1.0f;
     bool _bgmLoop = true;
 
     static BGM_Manager_Script _uniqueInstance;
@@ -35,10 +36,17 @@ public class BGM_Manager_Script : MonoBehaviour
 
     void Start()
     {
+        _bgmVolum = PlayerPrefs.GetFloat("_bgmVolum", 1.0f);
+        BGMVolume.value = _bgmVolum;
+        _playerBGM.volume = BGMVolume.value;
     }
 
     void Update()
     {
+        if (Scene_Manager_Script.instance.eCurrentScene == Scene_Manager_Script.eSceneState.LOBBY)
+        {
+            SoundSlider();
+        }
     }
 
     public void PlayBGMSound(eTypeBGM type)
@@ -49,5 +57,13 @@ public class BGM_Manager_Script : MonoBehaviour
 
         _playerBGM.Play();
     }
+
+    public void SoundSlider()
+    {
+        _playerBGM.volume = BGMVolume.value;
+        _bgmVolum = BGMVolume.value;
+        PlayerPrefs.SetFloat("_bgmVolum", _bgmVolum);
+    }
+
 
 }

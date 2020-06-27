@@ -7,6 +7,15 @@ using UnityEngine.SceneManagement;//scenemanage역할
 
 public class Scene_Manager_Script : MonoBehaviour
 {
+    public enum eSceneState
+    {
+        START = 0,
+        LOBBY,
+        INGMAE
+    }
+
+    eSceneState _nowScene;
+
     float delay_check;//화면 넘기기 딜레이 주는 변수
     float time_check;//클릭시 시간저장
     bool Change_Scene;//화면 변경 불값
@@ -21,8 +30,15 @@ public class Scene_Manager_Script : MonoBehaviour
         get { return uniqueinstance; }
     }
 
+    public eSceneState eCurrentScene
+    {
+        set { _nowScene = eCurrentScene; }
+        get { return _nowScene; }
+    }
+
     void Awake()
     {
+        eCurrentScene = eSceneState.START;
         uniqueinstance = this;
         DontDestroyOnLoad(gameObject);//안사라지게 해줌
     }
@@ -49,6 +65,7 @@ public class Scene_Manager_Script : MonoBehaviour
         if ((delay_check-time_check) >= 2.0f && Change_Scene)
         {
             SceneManager.LoadScene("Lobby");
+            eCurrentScene = eSceneState.LOBBY;
             Change_Scene = false;
         }        
     }
@@ -60,6 +77,7 @@ public class Scene_Manager_Script : MonoBehaviour
 
         SceneManager.LoadScene("Ingame");
         BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.INGAME);
+        eCurrentScene = eSceneState.INGMAE;
     }
 
     public void Restart_Game()
@@ -71,6 +89,7 @@ public class Scene_Manager_Script : MonoBehaviour
     public void Go_Home()
     {
         SceneManager.LoadScene("Lobby");
+        eCurrentScene = eSceneState.LOBBY;
     }
 
     public void Quit_Button()

@@ -57,8 +57,8 @@ public class Ingame_Manager : MonoBehaviour
 
     void Start()
     {
-        GameObject go = GameObject.Find("MessageBG");
-        _MsgBox = go.GetComponent<MessageBox>();
+        //GameObject go = GameObject.Find("MessageBG");
+        //_MsgBox = go.GetComponent<MessageBox>();
     }
 
     void Update()

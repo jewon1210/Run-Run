@@ -110,6 +110,7 @@ public class Player_Control : MonoBehaviour
             //_GM.AddPoint(3);
             GameObject go = collision.gameObject;
             Destroy(go);
+            Effect_Sound_Script._instance.PlayEffectSound(Effect_Sound_Script.eTypeEffectSound.COIN);
         }
     }
 
