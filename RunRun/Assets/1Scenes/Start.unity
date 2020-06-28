@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 3719384255098000005, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.687
+      objectReference: {fileID: 0}
     - target: {fileID: 3719384255098000006, guid: 817853da6101cfa4d8543bdf5d7c2cac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -188,6 +193,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3719384255098000007, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: _bgmClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719384255098000007, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: _bgmClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 04a30d48914e7e54c8f9327dd05aeed0, type: 3}
+    - target: {fileID: 3719384255098000007, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: _bgmClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b1fb30123bfc1e643aab8fb53fc0ed97, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 817853da6101cfa4d8543bdf5d7c2cac, type: 3}
 --- !u!1001 &192918565
@@ -252,11 +272,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7590014102287781523, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.67
+      objectReference: {fileID: 0}
     - target: {fileID: 7590014102287781548, guid: e7d2fe9a3621b394392e36d773d0cf9f,
         type: 3}
       propertyPath: m_Name
       value: EffectSoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7590014102287781549, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: _effectClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590014102287781549, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: _effectClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed249e373679d4a11adc0b58a4477f45, type: 3}
+    - target: {fileID: 7590014102287781549, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: _effectClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 04a30d48914e7e54c8f9327dd05aeed0, type: 3}
+    - target: {fileID: 7590014102287781549, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: _effectClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: b1fb30123bfc1e643aab8fb53fc0ed97, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d2fe9a3621b394392e36d773d0cf9f, type: 3}
 --- !u!1 &268672046
@@ -902,6 +947,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3907603164881799012, guid: 0ffcfbfec80cf8c4292e26c991053e6b,
+        type: 3}
+      propertyPath: Loading
+      value: 
+      objectReference: {fileID: 5894163369412794420, guid: f19ad8ab21695d844866e11575d9b0b5,
+        type: 3}
+    - target: {fileID: 3907603164881799012, guid: 0ffcfbfec80cf8c4292e26c991053e6b,
+        type: 3}
+      propertyPath: ResultWindow
+      value: 
+      objectReference: {fileID: 5894163369412794420, guid: f19ad8ab21695d844866e11575d9b0b5,
+        type: 3}
     - target: {fileID: 3907603164881799013, guid: 0ffcfbfec80cf8c4292e26c991053e6b,
         type: 3}
       propertyPath: m_Name

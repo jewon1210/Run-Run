@@ -22,7 +22,7 @@ public class Scene_Manager_Script : MonoBehaviour
     bool Click_once;
 
     [SerializeField] GameObject Loading;//로딩화면 생성
-
+    [SerializeField] GameObject ResultWindow;
     static Scene_Manager_Script uniqueinstance;
 
     public static Scene_Manager_Script instance
@@ -73,8 +73,6 @@ public class Scene_Manager_Script : MonoBehaviour
 
     public void Load_Ingame_Scene()
     {        
-        //이후 시간차를 두어 넘어가게 하고 중간에 로딩화면 등을 넣을 예정
-
         SceneManager.LoadScene("Ingame");
         BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.INGAME);
         eCurrentScene = eSceneState.INGMAE;
@@ -90,6 +88,8 @@ public class Scene_Manager_Script : MonoBehaviour
     {
         SceneManager.LoadScene("Lobby");
         eCurrentScene = eSceneState.LOBBY;
+        BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.TITLE);
+
     }
 
     public void Quit_Button()

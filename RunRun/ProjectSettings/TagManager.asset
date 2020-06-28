@@ -8,6 +8,8 @@ TagManager:
   - Obstacle
   - ClearLine
   - Coin
+  - Monster
+  - MessageBG
   layers:
   - Default
   - TransparentFX

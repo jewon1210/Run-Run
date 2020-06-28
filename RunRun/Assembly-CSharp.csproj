@@ -68,9 +68,11 @@
     <Compile Include="Assets\2Scripts\Ingame_Manager.cs" />
     <Compile Include="Assets\2Scripts\Menu_Select_Scripts.cs" />
     <Compile Include="Assets\2Scripts\MessageBox.cs" />
+    <Compile Include="Assets\2Scripts\Monster_Control.cs" />
     <Compile Include="Assets\2Scripts\MoveObjcet.cs" />
     <Compile Include="Assets\2Scripts\Obstacle_Manager.cs" />
     <Compile Include="Assets\2Scripts\Player_Control.cs" />
+    <Compile Include="Assets\2Scripts\ResultWindowScript.cs" />
     <Compile Include="Assets\2Scripts\Scene_Manager_Script.cs" />
     <Compile Include="Assets\2Scripts\Texture_Manager_Script.cs" />
     <Compile Include="Assets\9Downloads\PSD Logo Templates\Sample\IconPreview.cs" />

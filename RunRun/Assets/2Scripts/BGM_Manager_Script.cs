@@ -8,13 +8,15 @@ public class BGM_Manager_Script : MonoBehaviour
     public enum eTypeBGM
     {
         TITLE = 0,
-        INGAME
+        INGAME,
+        FAIL,
+        GAMEOVER
     }
     
 
     [SerializeField] AudioClip[] _bgmClips;
 
-    public Slider BGMVolume;
+    //public Slider BGMVolume;
     AudioSource _playerBGM;
 
     float _bgmVolum = 1.0f;
@@ -37,8 +39,8 @@ public class BGM_Manager_Script : MonoBehaviour
     void Start()
     {
         _bgmVolum = PlayerPrefs.GetFloat("_bgmVolum", 1.0f);
-        BGMVolume.value = _bgmVolum;
-        _playerBGM.volume = BGMVolume.value;
+        //BGMVolume.value = _bgmVolum;
+        //_playerBGM.volume = BGMVolume.value;
     }
 
     void Update()
@@ -53,15 +55,18 @@ public class BGM_Manager_Script : MonoBehaviour
     {
         _playerBGM.clip = _bgmClips[(int)type];
         _playerBGM.volume = _bgmVolum;
-        _playerBGM.loop = _bgmLoop;
+        if (type == eTypeBGM.FAIL || type == eTypeBGM.GAMEOVER)
+            _playerBGM.loop = false;
+        else
+            _playerBGM.loop = _bgmLoop;
 
         _playerBGM.Play();
     }
 
     public void SoundSlider()
     {
-        _playerBGM.volume = BGMVolume.value;
-        _bgmVolum = BGMVolume.value;
+        //_playerBGM.volume = BGMVolume.value;
+        //_bgmVolum = BGMVolume.value;
         PlayerPrefs.SetFloat("_bgmVolum", _bgmVolum);
     }
 

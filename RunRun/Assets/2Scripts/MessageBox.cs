@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MessageBox : MonoBehaviour
 {
     Text _message;
-
+    
 
     void Awake()
     {

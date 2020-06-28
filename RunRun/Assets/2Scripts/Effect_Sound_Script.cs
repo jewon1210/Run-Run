@@ -10,12 +10,15 @@ public class Effect_Sound_Script : MonoBehaviour
         BUTTON = 0,
         JUMP1,
         JUMP2,
-        COIN
+        COIN,
+        HIT,
+        FAIL,
+        GAMEOVER
     }
 
     [SerializeField] AudioClip[] _effectClips;
     
-    public Slider effectVolume;
+    //public Slider effectVolume;
     AudioSource _playerEffectSound;
     float _effectVolum = 1.0f;
     bool _bgmLoop = true;
@@ -37,8 +40,8 @@ public class Effect_Sound_Script : MonoBehaviour
     void Start()
     {
         _effectVolum = PlayerPrefs.GetFloat("_effectVolum", 1.0f);
-        effectVolume.value = _effectVolum;
-        _playerEffectSound.volume = effectVolume.value;
+        //effectVolume.value = _effectVolum;
+        //_playerEffectSound.volume = effectVolume.value;
     }
 
     void Update()
@@ -60,8 +63,8 @@ public class Effect_Sound_Script : MonoBehaviour
 
     public void SoundSlider()
     {
-        _playerEffectSound.volume = effectVolume.value;
-        _effectVolum = effectVolume.value;
+        //_playerEffectSound.volume = effectVolume.value;
+        //_effectVolum = effectVolume.value;
         PlayerPrefs.SetFloat("_effectVolum", _effectVolum);
     }
 }
