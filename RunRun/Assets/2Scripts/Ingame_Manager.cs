@@ -7,7 +7,7 @@ public class Ingame_Manager : MonoBehaviour
 {
     public enum eGameState
     {
-        NONE = 0,
+        STORY = 0,
         READY,
         GO,
         PLAY,
@@ -19,11 +19,12 @@ public class Ingame_Manager : MonoBehaviour
     [SerializeField] GameObject _prefabsResultWindow;
     [SerializeField] GameObject _PauseButton;
     [SerializeField] GameObject[] _Background;
+    [SerializeField] GameObject _prefabsStoryWindow;
     //[SerializeField] int stage_num;
 
     eGameState _currentGameState;
 
-    bool _isDeath, _isEnd, _isSuccess;
+    bool _isDeath, _isEnd, _isSuccess, _isClicked;
     float _timeCheck = 0, _waitReadyTime = 3.0f;
     int _TotalScore = 0;        //획득 점수 저장
 
@@ -58,6 +59,7 @@ public class Ingame_Manager : MonoBehaviour
         _isDead = false;
         _isEnd = false;
         _isSuccess = false;
+        _isClicked = false;
     }
 
     void Start()
@@ -72,13 +74,20 @@ public class Ingame_Manager : MonoBehaviour
         go = GameObject.Find("ScoreBG");
         _txtScore = go.transform.GetChild(1).GetComponent<Text>();
 
-        GameReady();
+        GameStory();
     }
 
     void LateUpdate()
     {
         switch (_currentGameState)
         {
+            case eGameState.STORY:
+                if (_isClicked)
+                {
+                    storyWindowControl();
+                    GameReady();
+                }
+                break;
             case eGameState.READY:
                 _timeCheck += Time.deltaTime;
                 if (_timeCheck >= _waitReadyTime)
@@ -96,13 +105,17 @@ public class Ingame_Manager : MonoBehaviour
                 break;
         }
     }
+    public void GameStory()
+    {
+        _currentGameState = eGameState.STORY;
+        ControlObject(false);
+        _player.ani_pause();
+        _monster.isPause();
+    }
     public void GameReady()
     {
         _currentGameState = eGameState.READY;
         _MsgBox.EnableMessage(true, "Ready~");
-        ControlObject(false);
-        _player.ani_pause();
-        _monster.isPause();
     }
     public void GameGO()
     {
@@ -197,5 +210,14 @@ public class Ingame_Manager : MonoBehaviour
         _Background[0].SetActive(control);  // true이면 출발
         _Background[1].SetActive(!control); // true이면 멈춤
         _PauseButton.SetActive(control); 
+    }
+
+    public void storyWindowControl()
+    {
+        _prefabsStoryWindow.SetActive(false);
+    }
+    public void StoryQuitButton()
+    {
+        _isClicked = true;
     }
 }

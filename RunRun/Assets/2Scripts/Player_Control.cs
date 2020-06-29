@@ -23,7 +23,7 @@ public class Player_Control : MonoBehaviour
 
     bool Jump_First, Jump_Second, _isDead;
     float timeScore;
-    Rigidbody2D rid2D;
+    Rigidbody2D rid2D, tempVelocitySave;
     State_Ani _currentAction;
 
     public bool _isDeath
@@ -36,6 +36,8 @@ public class Player_Control : MonoBehaviour
     {
         _isDead = false;
         rid2D = GetComponent<Rigidbody2D>();
+        tempVelocitySave = GetComponent<Rigidbody2D>();
+
         _aniCtrl = GetComponent<Animator>();
         Jump_First = true;
         Jump_Second = true;
@@ -72,7 +74,7 @@ public class Player_Control : MonoBehaviour
             ChangeAction(State_Ani.JUMPDOWN);
 
         timeScore += Time.deltaTime;
-        if (timeScore >= 1.0f)
+        if (timeScore >= 1.0f && _GM._nowGameState == Ingame_Manager.eGameState.PLAY)
         {
             _GM.AddPoint(1);
             timeScore = 0;
@@ -152,10 +154,15 @@ public class Player_Control : MonoBehaviour
     public void ani_pause()
     {
         _aniCtrl.speed = 0;
+        rid2D.gravityScale = 0;
+        tempVelocitySave.velocity = rid2D.velocity;
+        rid2D.velocity = new Vector2(0,0);
     }
     public void ani_start()
     {
         _aniCtrl.speed = 1;
+        rid2D.gravityScale = 1;
+        rid2D.velocity = tempVelocitySave.velocity;
     }
 
 }
