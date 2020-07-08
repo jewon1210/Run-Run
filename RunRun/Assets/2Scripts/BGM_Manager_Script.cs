@@ -16,7 +16,6 @@ public class BGM_Manager_Script : MonoBehaviour
 
     [SerializeField] AudioClip[] _bgmClips;
 
-    //public Slider BGMVolume;
     AudioSource _playerBGM;
 
     float _bgmVolum = 1.0f;
@@ -39,16 +38,10 @@ public class BGM_Manager_Script : MonoBehaviour
     void Start()
     {
         _bgmVolum = PlayerPrefs.GetFloat("_bgmVolum", 1.0f);
-        //BGMVolume.value = _bgmVolum;
-        //_playerBGM.volume = BGMVolume.value;
     }
 
     void Update()
     {
-        if (Scene_Manager_Script.instance.eCurrentScene == Scene_Manager_Script.eSceneState.LOBBY)
-        {
-            SoundSlider();
-        }
     }
 
     public void PlayBGMSound(eTypeBGM type)
@@ -63,11 +56,10 @@ public class BGM_Manager_Script : MonoBehaviour
         _playerBGM.Play();
     }
 
-    public void SoundSlider()
+    public void SoundSlider(float vol)
     {
-        //_playerBGM.volume = BGMVolume.value;
-        //_bgmVolum = BGMVolume.value;
-        PlayerPrefs.SetFloat("_bgmVolum", _bgmVolum);
+        _playerBGM.volume = vol;
+        _bgmVolum = vol;
     }
 
 

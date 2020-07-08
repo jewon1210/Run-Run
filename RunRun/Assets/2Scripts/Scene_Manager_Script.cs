@@ -23,6 +23,9 @@ public class Scene_Manager_Script : MonoBehaviour
 
     [SerializeField] GameObject Loading;//로딩화면 생성
     [SerializeField] GameObject ResultWindow;
+
+    //BGM_Manager_Script BGMManger;
+
     static Scene_Manager_Script uniqueinstance;
 
     public static Scene_Manager_Script instance
@@ -59,12 +62,12 @@ public class Scene_Manager_Script : MonoBehaviour
             Change_Scene = true;
             time_check=delay_check;
             Click_once = false;
-            BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.TITLE);
         }
 
         if ((delay_check-time_check) >= 2.0f && Change_Scene)
         {
             SceneManager.LoadScene("Lobby");
+            BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.TITLE);
             eCurrentScene = eSceneState.LOBBY;
             Change_Scene = false;
         }        

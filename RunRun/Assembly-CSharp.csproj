@@ -63,7 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2Scripts\BGM_Manager_Script.cs" />
+    <Compile Include="Assets\2Scripts\BGM_Sound_Slider_Script.cs" />
     <Compile Include="Assets\2Scripts\Effect_Sound_Script.cs" />
+    <Compile Include="Assets\2Scripts\Effect_Sound_Slider_Script.cs" />
     <Compile Include="Assets\2Scripts\Image_Effect.cs" />
     <Compile Include="Assets\2Scripts\Ingame_Manager.cs" />
     <Compile Include="Assets\2Scripts\Menu_Select_Scripts.cs" />

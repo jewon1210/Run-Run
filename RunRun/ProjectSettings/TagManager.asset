@@ -10,6 +10,8 @@ TagManager:
   - Coin
   - Monster
   - MessageBG
+  - BGM
+  - EffectSound
   layers:
   - Default
   - TransparentFX
