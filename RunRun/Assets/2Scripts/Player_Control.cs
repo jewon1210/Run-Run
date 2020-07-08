@@ -39,8 +39,8 @@ public class Player_Control : MonoBehaviour
         tempVelocitySave = GetComponent<Rigidbody2D>();
 
         _aniCtrl = GetComponent<Animator>();
-        Jump_First = true;
-        Jump_Second = true;
+        Jump_First = false;
+        Jump_Second = false;
     }
 
     void Start()
