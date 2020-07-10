@@ -21,6 +21,11 @@ public class BGM_Manager_Script : MonoBehaviour
     float _bgmVolum = 1.0f;
     bool _bgmLoop = true;
 
+    public float _bgmVol
+    {
+        get { return _bgmVolum; }
+    }
+
     static BGM_Manager_Script _uniqueInstance;
 
     public static BGM_Manager_Script _instance
@@ -62,5 +67,5 @@ public class BGM_Manager_Script : MonoBehaviour
         _bgmVolum = vol;
     }
 
-
+    
 }

@@ -10,7 +10,7 @@ public class Monster_Control : MonoBehaviour
 
     void Start()
     {
-        _moveSpeed = 2.0f;
+        _moveSpeed = 0.0f;
         direct = false;
     }
 

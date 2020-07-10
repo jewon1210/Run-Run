@@ -7,21 +7,9 @@ public class Obstacle_Manager : MonoBehaviour
     [SerializeField] float _moveSpeed = 3.0f;
     bool pause;
 
-    static Obstacle_Manager _uniqueInstance;
-
-    public static Obstacle_Manager _instance
-    {
-        get { return _uniqueInstance; }
-    }
-
-    void Awake()
-    {
-        _uniqueInstance = this;
-    }
-
     void Start()
     {
-        pause = false;
+        pause = true;
     }
 
     // Update is called once per frame

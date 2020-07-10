@@ -20,7 +20,7 @@ public class Effect_Sound_Script : MonoBehaviour
     
     AudioSource _playerEffectSound;
     float _effectVolum = 1.0f;
-    bool _bgmLoop = true, isLobby = false;
+    bool _bgmLoop = true;
 
     static Effect_Sound_Script _uniqueInstance;
 
@@ -28,7 +28,10 @@ public class Effect_Sound_Script : MonoBehaviour
     {
         get { return _uniqueInstance; }
     }
-
+    public float _effectVol
+    {
+        get { return _effectVolum; }
+    }
     void Awake()
     {
         _uniqueInstance = this;

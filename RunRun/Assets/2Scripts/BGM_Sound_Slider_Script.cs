@@ -18,6 +18,7 @@ public class BGM_Sound_Slider_Script : MonoBehaviour
 
     void Start()
     {
+        slider.value = BGM_Manager_Script._instance._bgmVol;
     }
     void Update()
     {
@@ -30,9 +31,15 @@ public class BGM_Sound_Slider_Script : MonoBehaviour
     public void SoundOnOff()
     {
         if (OnOff)
+        {
             slider.value = 0;
+            OnOff = false;
+        }
         else
+        {
             slider.value = 1.0f;
+            OnOff = true;
+        }
         BGM_Manager_Script._instance.SoundSlider(slider.value);
     }
 }

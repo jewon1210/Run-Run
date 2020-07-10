@@ -188,6 +188,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EffectSoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7590014102287781549, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: _effectClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590014102287781549, guid: e7d2fe9a3621b394392e36d773d0cf9f,
+        type: 3}
+      propertyPath: _effectClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed249e373679d4a11adc0b58a4477f45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d2fe9a3621b394392e36d773d0cf9f, type: 3}
 --- !u!1 &268672046
@@ -532,6 +542,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3719384255098000007, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: _bgmClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719384255098000007, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: _bgmClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 04a30d48914e7e54c8f9327dd05aeed0, type: 3}
+    - target: {fileID: 3719384255098000007, guid: 817853da6101cfa4d8543bdf5d7c2cac,
+        type: 3}
+      propertyPath: _bgmClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b1fb30123bfc1e643aab8fb53fc0ed97, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 817853da6101cfa4d8543bdf5d7c2cac, type: 3}
 --- !u!1 &723254075

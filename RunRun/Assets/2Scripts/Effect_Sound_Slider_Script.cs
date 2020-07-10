@@ -18,6 +18,7 @@ public class Effect_Sound_Slider_Script : MonoBehaviour
 
     void Start()
     {
+        slider.value = Effect_Sound_Script._instance._effectVol;
     }
 
     void Update()
@@ -31,9 +32,15 @@ public class Effect_Sound_Slider_Script : MonoBehaviour
     public void SoundOnOff()
     {
         if (OnOff)
+        {
             slider.value = 0;
+            OnOff = false;
+        }
         else
+        {
             slider.value = 1.0f;
+            OnOff = true;
+        }
         Effect_Sound_Script._instance.SoundSlider(slider.value);
     }
 

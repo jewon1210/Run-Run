@@ -11,7 +11,6 @@ public class Player_Control : MonoBehaviour
     Animator _aniCtrl;
     Ingame_Manager _GM;
 
-
     public enum State_Ani
     {
         IDLE        =0,
@@ -119,7 +118,7 @@ public class Player_Control : MonoBehaviour
         {
             Effect_Sound_Script._instance.PlayEffectSound(Effect_Sound_Script.eTypeEffectSound.HIT);
             ChangeAction(State_Ani.HIT);
-            Obstacle_Manager._instance.MovePause();
+            //Obstacle_Manager._instance.MovePause();
             _GM.isEnd(false);
         }
 
@@ -133,7 +132,7 @@ public class Player_Control : MonoBehaviour
 
         if(collision.tag == "ClearLine")
         {
-            Obstacle_Manager._instance.MovePause();
+            //Obstacle_Manager._instance.MovePause();
             _GM.isEnd(true);
         }
     }

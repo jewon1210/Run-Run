@@ -75,6 +75,7 @@
     <Compile Include="Assets\2Scripts\Obstacle_Manager.cs" />
     <Compile Include="Assets\2Scripts\Player_Control.cs" />
     <Compile Include="Assets\2Scripts\ResultWindowScript.cs" />
+    <Compile Include="Assets\2Scripts\SawMoving.cs" />
     <Compile Include="Assets\2Scripts\Scene_Manager_Script.cs" />
     <Compile Include="Assets\2Scripts\Texture_Manager_Script.cs" />
     <Compile Include="Assets\9Downloads\PSD Logo Templates\Sample\IconPreview.cs" />

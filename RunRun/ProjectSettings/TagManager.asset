@@ -12,6 +12,7 @@ TagManager:
   - MessageBG
   - BGM
   - EffectSound
+  - stage
   layers:
   - Default
   - TransparentFX

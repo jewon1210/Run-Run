@@ -20,7 +20,8 @@ public class Ingame_Manager : MonoBehaviour
     [SerializeField] GameObject _PauseButton;
     [SerializeField] GameObject[] _Background;
     [SerializeField] GameObject _prefabsStoryWindow;
-    //[SerializeField] int stage_num;
+
+    public int stageNum;
 
     eGameState _currentGameState;
 
@@ -28,10 +29,11 @@ public class Ingame_Manager : MonoBehaviour
     float _timeCheck = 0, _waitReadyTime = 3.0f;
     int _TotalScore = 0;        //획득 점수 저장
 
+    Obstacle_Manager obManger;
     MessageBox _MsgBox;
     Player_Control _player;
     Monster_Control _monster;
-
+    GameObject go;
     Text _txtScore;
 
     static Ingame_Manager _uniqueInstance;
@@ -55,25 +57,29 @@ public class Ingame_Manager : MonoBehaviour
 
     void Awake()
     {
+        stageNum = 1;
         _uniqueInstance = this;
         _isDead = false;
         _isEnd = false;
         _isSuccess = false;
         _isClicked = false;
-    }
 
-    void Start()
-    {
-        GameObject go = GameObject.FindGameObjectWithTag("Player");
-        _player = go.GetComponent<Player_Control>();
+        stageSelect(stageNum);
+
+        go = GameObject.FindGameObjectWithTag("stage");
+        obManger = go.transform.GetChild(0).GetComponent<Obstacle_Manager>();
         go = GameObject.FindGameObjectWithTag("Monster");
         _monster = go.GetComponent<Monster_Control>();
-
+        go = GameObject.FindGameObjectWithTag("Player");
+        _player = go.GetComponent<Player_Control>();
         go = GameObject.Find("MessageBG");
         _MsgBox = go.GetComponent<MessageBox>();
         go = GameObject.Find("ScoreBG");
         _txtScore = go.transform.GetChild(1).GetComponent<Text>();
+    }
 
+    void Start()
+    {
         GameStory();
     }
 
@@ -105,6 +111,20 @@ public class Ingame_Manager : MonoBehaviour
                 break;
         }
     }
+
+    public void stageSelect(int num)
+    {
+        switch (stageNum)
+        {
+            case 0:
+                go = Instantiate(_prefabsStage[num]);
+                break;
+            case 1:
+                go = Instantiate(_prefabsStage[num]);
+                break;
+        }
+    }
+
     public void GameStory()
     {
         _currentGameState = eGameState.STORY;
@@ -147,23 +167,6 @@ public class Ingame_Manager : MonoBehaviour
         ControlObject(false);
     }
 
-    public void In_game(int stage)
-    {
-        //GameObject go;
-        //switch (stage)
-        //{
-        //    case 1:
-        //        go = Instantiate(_prefabsStage[stage]);
-        //        break;
-        //    case 2:
-        //        go = Instantiate(_prefabsStage[stage]);
-        //        break;
-        //    case 3:
-        //        go = Instantiate(_prefabsStage[stage]);
-        //        break;
-        //}
-    }
-
     public void Restart_Game()
     {
         Scene_Manager_Script.instance.Restart_Game();
@@ -174,13 +177,13 @@ public class Ingame_Manager : MonoBehaviour
     }
     public void Pause()
     {
-        Obstacle_Manager._instance.MovePause();
+        obManger.MovePause();
         _player.ani_pause();
         _monster.isPause();
     }
     public void Resume_Game()
     {
-        Obstacle_Manager._instance.MoveStart();
+        obManger.MoveStart();
         _player.ani_start();
         _monster.isMove();
     }
@@ -203,9 +206,9 @@ public class Ingame_Manager : MonoBehaviour
     public void ControlObject(bool control)//true 받으면 출발
     {
         if (control)
-            Obstacle_Manager._instance.MoveStart();
+            obManger.MoveStart();
         else
-            Obstacle_Manager._instance.MovePause();
+            obManger.MovePause();
 
         _Background[0].SetActive(control);  // true이면 출발
         _Background[1].SetActive(!control); // true이면 멈춤
