@@ -14,8 +14,10 @@ public class Scene_Manager_Script : MonoBehaviour
         INGMAE
     }
 
+    int _Stage;
     eSceneState _nowScene;
 
+    int[] HighScoreOfEachStage;
     float delay_check;//화면 넘기기 딜레이 주는 변수
     float time_check;//클릭시 시간저장
     bool Change_Scene;//화면 변경 불값
@@ -39,8 +41,15 @@ public class Scene_Manager_Script : MonoBehaviour
         get { return _nowScene; }
     }
 
+    public int _nowStage
+    {
+        get { return _Stage; }
+    }
+
     void Awake()
     {
+        HighScoreOfEachStage = new int[] { 0, };
+        _Stage = 0;
         eCurrentScene = eSceneState.START;
         uniqueinstance = this;
         DontDestroyOnLoad(gameObject);//안사라지게 해줌
@@ -70,7 +79,12 @@ public class Scene_Manager_Script : MonoBehaviour
             SceneManager.LoadScene("Lobby");
             eCurrentScene = eSceneState.LOBBY;
             Change_Scene = false;
-        }        
+        }
+
+        if (_Stage <= 1 && Input.GetKeyDown(KeyCode.F1))
+            _Stage = 0;
+        if (_Stage <= 1 && Input.GetKeyDown(KeyCode.F2))
+            _Stage = 1;
     }
 
 
@@ -95,6 +109,14 @@ public class Scene_Manager_Script : MonoBehaviour
 
     }
 
+    public void Next_Stage()
+    {
+        if(_Stage != 1)
+            _Stage++;
+        SceneManager.LoadScene("Ingame");
+        BGM_Manager_Script._instance.PlayBGMSound(BGM_Manager_Script.eTypeBGM.INGAME);
+    }
+
     public void Quit_Button()
     {
 
@@ -105,5 +127,15 @@ public class Scene_Manager_Script : MonoBehaviour
         //빌드에서는 가능하지만 에디터에서는 안된다.
         Application.Quit();
 #endif
+    }
+
+    public void HighScoreSave(int stage, int Score)
+    {
+        HighScoreOfEachStage[stage] = Score;
+    }
+
+    public int HighScoreList(int stage)
+    {
+        return HighScoreOfEachStage[stage];
     }
 }

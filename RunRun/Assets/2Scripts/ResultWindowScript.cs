@@ -65,7 +65,7 @@ public class ResultWindowScript : MonoBehaviour
     }
     public void ClickNextButton()
     {
-        Scene_Manager_Script.instance.Restart_Game();
+        Scene_Manager_Script.instance.Next_Stage();
     }
 
 }

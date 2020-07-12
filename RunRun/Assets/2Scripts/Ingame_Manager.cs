@@ -57,7 +57,8 @@ public class Ingame_Manager : MonoBehaviour
 
     void Awake()
     {
-        stageNum = 1;
+        stageNum = Scene_Manager_Script.instance._nowStage;
+
         _uniqueInstance = this;
         _isDead = false;
         _isEnd = false;
@@ -153,7 +154,13 @@ public class Ingame_Manager : MonoBehaviour
         _player.ani_start();
         _monster.isMove();
     }
-
+    public void GameNextStage()
+    {
+        go = GameObject.FindGameObjectWithTag("stage");
+        Destroy(go);
+        ++stageNum;
+        stageSelect(stageNum);
+    }
 
 
     public void isEnd(bool isSuccess)
@@ -201,6 +208,7 @@ public class Ingame_Manager : MonoBehaviour
         GameObject go = Instantiate(_prefabsResultWindow);
         ResultWindowScript Rwnd = go.GetComponent<ResultWindowScript>();
         Rwnd.OpenWindow(isSuccess, _TotalScore);
+        Scene_Manager_Script.instance.HighScoreSave(stageNum, _TotalScore);
     }
 
     public void ControlObject(bool control)//true 받으면 출발
