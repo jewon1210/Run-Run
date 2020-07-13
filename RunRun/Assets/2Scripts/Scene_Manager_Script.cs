@@ -48,7 +48,7 @@ public class Scene_Manager_Script : MonoBehaviour
 
     void Awake()
     {
-        HighScoreOfEachStage = new int[] { 0, };
+        HighScoreOfEachStage = new int[2] { 0, 0};
         _Stage = 0;
         eCurrentScene = eSceneState.START;
         uniqueinstance = this;
