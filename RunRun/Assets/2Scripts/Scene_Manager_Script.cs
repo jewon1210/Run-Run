@@ -48,6 +48,7 @@ public class Scene_Manager_Script : MonoBehaviour
 
     void Awake()
     {
+        Screen.SetResolution(1024, 768, true);
         HighScoreOfEachStage = new int[2] { 0, 0};
         _Stage = 0;
         eCurrentScene = eSceneState.START;
