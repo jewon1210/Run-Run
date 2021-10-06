@@ -132,7 +132,8 @@ public class Scene_Manager_Script : MonoBehaviour
 
     public void HighScoreSave(int stage, int Score)
     {
-        HighScoreOfEachStage[stage] = Score;
+        if(HighScoreOfEachStage[stage] < Score)
+            HighScoreOfEachStage[stage] = Score;
     }
 
     public int HighScoreList(int stage)

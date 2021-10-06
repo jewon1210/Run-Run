@@ -65,3 +65,6 @@ TagManager:
   - name: Coin
     uniqueID: 2836363771
     locked: 0
+  - name: Monster
+    uniqueID: 3158917461
+    locked: 0

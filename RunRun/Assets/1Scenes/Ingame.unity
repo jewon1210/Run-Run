@@ -2385,7 +2385,7 @@ PrefabInstance:
     - target: {fileID: 7521557614896474511, guid: 72d2a6d04aef9094cb301499d3b589d9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7521557615748437732, guid: 72d2a6d04aef9094cb301499d3b589d9,
         type: 3}
@@ -3349,6 +3349,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Princess_Character
       objectReference: {fileID: 0}
+    - target: {fileID: 2534279018209278245, guid: 6aaf07e833f10414d9b403253265ec69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aaf07e833f10414d9b403253265ec69, type: 3}
 --- !u!1001 &3224805464799691546
@@ -3362,6 +3367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dragon_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224805465593475365, guid: 0371b63447b0d6148aa8e5015f1dd447,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3224805465593475422, guid: 0371b63447b0d6148aa8e5015f1dd447,
         type: 3}
@@ -3492,6 +3502,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Knight_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976686748330839288, guid: c890b4c82405dbb42a3b66a8be528b30,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c890b4c82405dbb42a3b66a8be528b30, type: 3}
